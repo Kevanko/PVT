@@ -17,9 +17,7 @@ int image_is_dark(uint8_t *img, int width, int height)
     int count = 0;
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
-            if (img[i * width + j] >= 128) {
-                count++;
-            }
+            count+= (img[i * width + j] >> 7);
         }
     }
     return count < width * height / 2;
