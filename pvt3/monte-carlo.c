@@ -51,8 +51,8 @@ void serial() {
 void parallel() {
   int in = 0;
   double s = 0;
-  t_parallel = wtime();
-#pragma omp parallel
+  t_parallel = omp_get_wtime();
+#pragma omp parallel num_threads(THREADS)
   {
     double s_loc = 0;
     int in_loc = 0;
@@ -73,7 +73,7 @@ void parallel() {
   }
   double v = PI * in / n;
   double res = v * s / in;
-  t_parallel = wtime() - t_parallel;
+  t_parallel = omp_get_wtime() - t_parallel;
   printf("Elapsed time (parallel): %.6f sec.\n", t_parallel);
   printf("Result: %.12f, n %d\n", res, n);
 }
