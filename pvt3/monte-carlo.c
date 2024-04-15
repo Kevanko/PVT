@@ -74,7 +74,7 @@ void parallel() {
   double v = PI * in / n;
   double res = v * s / in;
   t_parallel = wtime() - t_parallel;
-  printf("Elapsed time (serial): %.6f sec.\n", t_parallel);
+  printf("Elapsed time (parallel): %.6f sec.\n", t_parallel);
   printf("Result: %.12f, n %d\n", res, n);
 }
 
