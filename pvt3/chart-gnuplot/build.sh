@@ -1,3 +1,4 @@
 #!/bin/sh
 
-gnuplot ./graph.gp
+gnuplot ./graph_mid.gp
+gnuplot ./graph_carlo.gp
