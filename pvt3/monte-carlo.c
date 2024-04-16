@@ -36,7 +36,7 @@ void serial() {
   for (int i = 0; i < n; i++) {
     double x = getrand_serial() - 1; /* x in [-1, 0] */
     double y = getrand_serial();     /* y in [0, 1] */
-    if (y <= 1) {
+    if (y >= 0 && y <= 1) {
       in++;
       s += func(x, y);
     }
@@ -61,7 +61,7 @@ void parallel() {
     for (int i = 0; i < n; i++) {
       double x = getrand_parallel(&seed) - 1; /* x in [-1, 0] */
       double y = getrand_parallel(&seed);     /* y in [0, 1] */
-      if (y <= 1) {
+      if (y >= 0 && y <= 1) {
         in_loc++;
         s_loc += func(x, y);
       }
