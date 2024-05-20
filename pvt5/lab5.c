@@ -63,21 +63,23 @@ void write(double S, int n){
   fclose(f); 
 } 
 
-int main() {
-    const int size = 2000000;
-    int arr[size];
-
-    // Заполнение массива случайными числами от 1 до 10000
+void rand_arr(int* arr, int size){
     for (int i = 0; i < size; i++) {
         arr[i] = rand() % 10000 + 1;
     }
+}
 
+int main() {
+    const int size = 2000000;
+    int arr[size];
+    rand_arr(arr, size);
     // Сортировка массива
     double t = wtime();
     quicksort(arr, 0, size - 1);
     t = wtime() - t;
     printf("%f \n",t);
-    for(int f = 2; f<5; f++){
+    for(int f = 2; f<=8; f+=2){
+        rand_arr(arr, size);
         double time_omp=0;
         time_omp = wtime();
         #pragma omp parallel num_threads(f)

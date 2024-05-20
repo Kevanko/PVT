@@ -12,7 +12,7 @@ set xlabel "n" font 'Calibri,16'
 set ylabel "S" font 'Calibri,16'
 set format y "%.1f"
 set format x "%.0f"
-set xtics 2,1,4
+set xtics 2,1,8
 
 plot x title "Linear speedup" with lines lc rgb 'blue' lt 1 lw 2,\
      'res.txt' using 1:2 title "N = 2000000" with linespoints ls 2
